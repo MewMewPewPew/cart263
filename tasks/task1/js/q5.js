@@ -58,7 +58,7 @@ function setup() {
 function draw() {
     
     displaySquare();
-    // let counterCopy = counter;
+    //  let counterCopy = counter;
     while (counter >= 1 && counter <= 10) {
         // c = color(cercle.r, cercle.g, cercle.b, alpha);
         // ellipseAlpha = alpha(c);
@@ -91,7 +91,10 @@ function displaySquare() {
 
 // }
 function mouseClicked() {
-    counter += 1;
+    if (checkCollisionWithSquare()){
+        counter += 1;
+    } 
+    
     console.log(counter);
     
 }
