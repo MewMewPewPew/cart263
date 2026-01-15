@@ -1,109 +1,116 @@
-// AGAIN USE VARIABLES / CONSTS WHENEVER POSSIBLE
-// Create three rectangles: each one is the height of the canvas and 1 / 3 of the width of the canvas
-// Position the first rectangle in the first third, the second in the second third and the third at the end of the canvas(three columns)
-// Each rectangle should be a different blue color
-// Then, IF / WHEN the mouse is over the 1st rectangle change the colour of the first rectangle to white
-// Apply the same mouse behaviour to the other two rectangles
-// Also: Implement the following; when /if the mouse is NOT over a given rectangle make sure that those rectangles go back to their original color
-// For ALL parts: DO NOT USE ARRAYS
-// You may use OBJECTS - but only for the color of the rectangles
+// USE VARIABLES / CONSTS WHENEVER POSSIBLE
+// FOR THIS EXERCISE DO NOT USE A FOR LOOP - ONLY WHILE LOOP(S)
+// Create a variable that will hold a number i.e.counter, set its value to 0
+// Create an orange square(width, size and position do not matter)
+// Use an object to hold the square's properties (w,h,x and y and color)
+// Create a function called displaySquare() and in the body of the function implement the code to render the orange square.Call this function in the draw()
+// Whenever the mouse is clicked inside the orange square increment the counter variable by 1
+// Whenever the mouse is over the orange square: highlight the square to be lighter orange
+// Create a helper function to check if the mouse is inside the square(i.e.checkCollisionWithSquare()), and have it return true if it is and false otherwise.USE this function for the mouse click / over functionalities.
+// Create an ellipse and draw it with its center at the center of the screen
+// make a variable called radius to hold the size of the ellipse
+// Set the color of the ellipse to be white
+// Create a variable called ellipseAlpha to hold the alpha value of the ellipse.
+// Practise showing the ellipse at different sizes - change the radius(always with the same x and y)
+// USE A SINGLE WHILE LOOP in the draw() to draw the same number of ellipse as that of the counter(if the counter is 1 - 1 ellipse, if the counter is 2: 2 ellipse etc...)
+// Also in the while loop: each new circle should be slightly larger and make the alpha value larger(start the alpha small)
+// Do not draw anything if the counter is greater than 10 or less than 1
+// BONUS: make the logic for drawing a single circle into a custom function (i.e.drawCircle(x, y, radius, alpha))
+// BONUS II: make another square(red) that when clicked will decrement the counter by 1 ...AND - when hovered over will be lighter red ... (make custom functions and objects as required)
+// BONUS III: INSTEAD OF USING A WHILE LOOP FOR THE ELLIPSE(S) - USE A FOR LOOP...
+
 "use strict";
-let rect1 = {
-    x: 0,
-    y: 0,
-    w: 400 / 3,
-    h: 400,
-    r: 0,
-    g: 0,
-    b: 255
+
+let counter = 0;
+
+let square = {
+    x: 50,
+    y: 50,
+    w: 100,
+    h: 100,
+    r: 255,
+    g: 165,
+    b: 0,
 };
 
-let rect2 = {
-    x: 400 / 3,
-    y: 0,
-    w: 400 / 3,
-    h: 400,
-    r: 0,
-    g: 100,
-    b: 255
+let cercle = {
+    x: 200,
+    y: 200,
+    radius: 10,
+    r: 255,
+    g: 255,
+    b: 255,
+    // t: 20,
 };
 
-let rect3 = {
-    x: 400 / 3 * 2,
-    y: 0,
-    w: 400 / 3,
-    h: 400,
-    r: 0,
-    g: 200,
-    b: 255
-};
+// let c;
+// let ellipseAlpha;
 
 function setup() {
     console.log("go")
     createCanvas(400, 400);
-
-
+    background(0);
+    
 }
+
+
 
 function draw() {
-    background(255);
-    drawRect();
+    
+    displaySquare();
+    // let counterCopy = counter;
+    while (counter >= 1 && counter <= 10) {
+        // c = color(cercle.r, cercle.g, cercle.b, alpha);
+        // ellipseAlpha = alpha(c);
+        // drawEllipse();
+        let alpha = 50;
+        console.log(alpha);
+        stroke(255);
+        fill(cercle.r, cercle.g, cercle.b, alpha);
+        ellipse(cercle.x, cercle.y, cercle.radius);
+        cercle.radius += 20;
+        alpha += 20;
+        counter--;
+        
+    }
+    // drawEllipse();
 }
-
-function drawRect() {
+function displaySquare() {
     push();
     noStroke();
-    fill(rect1.r, rect1.g, rect1.b);
-    rect(rect1.x, rect1.y, rect1.w, rect1.h);
-    pop();
-
-    push();
-    noStroke();
-    fill(rect2.r, rect2.g, rect2.b);
-    rect(rect2.x, rect2.y, rect2.w, rect2.h);
-    pop();
-
-    push();
-    noStroke();
-    fill(rect3.r, rect3.g, rect3.b);
-    rect(rect3.x, rect3.y, rect3.w, rect3.h);
+    fill(square.r, square.g, square.b);
+    rect(square.x, square.y, square.w, square.h);
     pop();
 }
+// function drawEllipse() {
+//     push();
+//     stroke(255);
+//     fill(ellipseAlpha);
+//     ellipse(cercle.x, cercle.y, cercle.radius);
+//     pop();
 
+// }
+function mouseClicked() {
+    counter += 1;
+    console.log(counter);
+    
+}
 function mouseMoved() {
-    //rectangle 1
-    if (mouseX > rect1.x && mouseX < rect1.x + rect1.w &&
-        mouseY > rect1.y && mouseY < rect1.y + rect1.h) {
-        rect1.r = 255;
-        rect1.g = 255;
-        rect1.b = 255;
+    if (checkCollisionWithSquare()) {
+        square.r = 255;
+        square.g = 200;
+        square.b = 100;
     } else {
-        rect1.r = 0;
-        rect1.g = 0;
-        rect1.b = 255;
-    }
-
-    //rectangle 2
-    if (mouseX > rect2.x && mouseX < rect2.x + rect2.w &&
-        mouseY > rect2.y && mouseY < rect2.y + rect2.h) {
-        rect2.r = 255;
-        rect2.g = 255;
-        rect2.b = 255;
-    } else {
-        rect2.r = 0;
-        rect2.g = 100;
-        rect2.b = 255;
-    }
-
-    //rectangle 3
-    if (mouseX > rect3.x && mouseX < rect3.x + rect3.w &&
-        mouseY > rect3.y && mouseY < rect3.y + rect3.h) {
-        rect3.r = 255;
-        rect3.g = 255;
-        rect3.b = 255;
-    } else {
-        rect3.r = 0;
-        rect3.g = 200;
-        rect3.b = 255;
+        square.r = 255;
+        square.g = 165;
+        square.b = 0;
     }
 }
+function checkCollisionWithSquare() {
+    if (mouseX > square.x && mouseX < square.x + square.w &&
+        mouseY > square.y && mouseY < square.y + square.h) {
+        return true;
+    } else {
+        return false;
+    }
+}   
