@@ -21,58 +21,47 @@ let text1 = {
         y2:500,
     }
 }
-
 function setup() {
     console.log("go")
     createCanvas(500, 500);
     
-    
 }
-
-
-
 function draw() {
     background(0);
+    
     drawText();
-
-    
-    const numbers = [0,1,2,3,4,5,6,7,8,9];
+    const numbers = [0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10 ,11 ,12 ,13 ,14 ,15];
     let len = numbers.length;
-
-    let textNumV = "";
     
-    for (let i = 0; i < len; i++){
-        textNumV += numbers[i] + "\n" ;
-        
-
+    let textNum = "";
+    let textNumX = 0;
+    let textNumY = 20;
+    for (let i = 0; i < 10; i++){
+        textNum = numbers[i] ;
+        textNumX += 20;
+        push();
+        textSize(text1.size);
+        fill(text1.color);
+        text(textNum,textNumX ,textNumY);
+        pop();
     }
-    
-    textSize(text1.size);
-    fill(text1.color);
-    text(textNumV,text1.two.x, text1.two.y, text1.two.x2, text1.two.y2 );
-    
-    // const numbers = [0,1,2,3,4,5,6,7,8,9];
-    // let len = numbers.length;
-
-    // let textNumV = "";
-    
-    // for (let i = 0; i < len; i++){
-    //     textNumV += numbers[i] + "\n" ;
-    //     text1.two.x += 20;
-        
-
-    // }
-    
-    // textSize(text1.size);
-    // fill(text1.color);
-    // text(textNumV,text1.two.x, text1.two.y );
-    
+    textNumY = 0;
+    for (let i = 0; i < len; i++){
+        let textNumX = 20;
+        textNum = numbers[i] ;
+        textNumY += 20;
+        push();
+        textSize(text1.size);
+        fill(text1.color);
+        text(textNum,textNumX ,textNumY);
+        pop();
+    }
 }
 
 function drawText(){
     push();
     textSize(text1.size);
     fill(text1.color);
-    text(text1.string, text1.x, text1.y );
+    text(text1.string, text1.x, text1.y);
     pop();
 }
