@@ -36,6 +36,21 @@ function draw() {
     drawText();
 
     
+    // const numbers = [0,1,2,3,4,5,6,7,8,9];
+    // let len = numbers.length;
+
+    // let textNumV = "";
+    
+    // for (let i = 0; i < len; i++){
+    //     textNumV += numbers[i] + "\n" ;
+        
+
+    // }
+    
+    // textSize(text1.size);
+    // fill(text1.color);
+    // text(textNumV,text1.two.x, text1.two.y, text1.two.x2, text1.two.y2 );
+    
     const numbers = [0,1,2,3,4,5,6,7,8,9];
     let len = numbers.length;
 
@@ -43,13 +58,14 @@ function draw() {
     
     for (let i = 0; i < len; i++){
         textNumV += numbers[i] + "\n" ;
+        text1.two.x += 20;
         
 
     }
     
     textSize(text1.size);
     fill(text1.color);
-    text(textNumV,text1.two.x, text1.two.y, text1.two.x2, text1.two.y2 );
+    text(textNumV,text1.two.x, text1.two.y );
     
 }
 
