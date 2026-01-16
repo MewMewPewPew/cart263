@@ -6,20 +6,24 @@
 // BONUS: ON LOAD: make every EVEN row CIRCLES and every ODD row SQUARES.
 // Switch circles/squares on mouse click (odd row SQUARES and even row CIRCLES )..and vice versa
 
+//https://editor.p5js.org/jesse_harding/sketches/BPifO4FSm
+
+let fillColor;
 
 function setup() {
     console.log("go")
     createCanvas(510, 510);
-    
+    fillColor = color(random(0,255), random(0,255), random(0,255));
 }
 function draw() {
     background(0);
 let x = 0;
 let y = 0;
 let diameter = 50;
+
     for(x = 25; x < width; x++){
         for(y = 25; y < height; y++){
-            
+            fill(fillColor);
             ellipse(x, y, diameter);
             y += diameter;
         }
