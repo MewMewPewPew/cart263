@@ -237,9 +237,11 @@ function customCreateElement(parent){
     newElementP.innerHTML = "<p>using create Element</p>";
     newElementP.style.backgroundColor = "green";
     newElementP.querySelector("p").style.color = "white";
-    parent = document.getElementById("parent");
+    parent = document.getElementById("parent"); 
     }
-
+// for (let i = 0; i < allPTagsThree.length; i++){
+//     customCreateElement(allPTagsThree);
+// }
 /***EXPLANATION::
  * 
  * 
