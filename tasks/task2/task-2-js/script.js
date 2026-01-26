@@ -1,8 +1,8 @@
-window.onload = setup;
+// window.onload = setup;
 
 /** function setup */
-function setup(){
-console.log("we are a go!")
+// function setup(){
+// console.log("we are a go!")
 /*** ALL ANWSERS TO BE ADDED IN THE ALLOCATED SPACE */
 /*** START PART ONE ACCESS */ 
 /* 1: all paragraph elements */
@@ -225,23 +225,28 @@ HTMLCollection
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
-// window.onload = setup
-// function setup(){
-// customCreateElement(); }
+
 let allPTagsThree = document.getElementsByTagName("p");
-console.log(allPTagsThree);
-}
+// let parentElement;
+// console.log();
 function customCreateElement(parent){ 
     //body 
     let newElementP = document.createElement("p");
+    newElementP.classList.add("img-descript");
     newElementP.innerHTML = "<p>using create Element</p>";
     newElementP.style.backgroundColor = "green";
     newElementP.querySelector("p").style.color = "white";
-    parent = document.getElementById("parent"); 
-    }
-// for (let i = 0; i < allPTagsThree.length; i++){
-//     customCreateElement(allPTagsThree);
-// }
+    
+    //parentElement = document.getElementsByClassName("content-container");
+    // parentElement = allPTagsThree;
+    parent.appendChild(newElementP); // IDKKKKK ???
+}
+for (let i = 0; i < allPTagsThree.length; i++){
+    customCreateElement(allPTagsThree)++;
+}
+
+
+
 /***EXPLANATION::
  * 
  * 
