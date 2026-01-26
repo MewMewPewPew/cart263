@@ -226,24 +226,35 @@ HTMLCollection
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 
-let allPTagsThree = document.getElementsByTagName("p");
-// let parentElement;
-// console.log();
-function customCreateElement(parent){ 
+let allPTagsThree = document.querySelector("p");
+let allPTagsThrees = document.querySelectorAll("p");
+// let allPTagsThreeId = allPTagsThree.getAttribute("id"); 
+
+// let parent = [];
+let parentP;
+let newElementP;
+// console.log(allPTagsThrees[i]);
+function customCreateElement(parentP){ 
     //body 
-    let newElementP = document.createElement("p");
+    newElementP = document.createElement("p");
     newElementP.classList.add("img-descript");
     newElementP.innerHTML = "<p>using create Element</p>";
     newElementP.style.backgroundColor = "green";
     newElementP.querySelector("p").style.color = "white";
+    // parentP = document.body;
+    // parentP = document.getElementById("1") && document.getElementById("2");
+    // parentP = document.querySelector("p").parentElement;
+    // parent = document.getElementById(parentP);
+    parentP.appendChild(newElementP); // IDKKKKK ???
+}
+
+for (let i = 0; i < allPTagsThrees.length; i++){
+    console.log("hey");
+    customCreateElement(parentP)[allPTagsThrees];
     
-    //parentElement = document.getElementsByClassName("content-container");
-    // parentElement = allPTagsThree;
-    parent.appendChild(newElementP); // IDKKKKK ???
 }
-for (let i = 0; i < allPTagsThree.length; i++){
-    customCreateElement(allPTagsThree)++;
-}
+//  customCreateElement(parentP)[1];
+
 
 
 
