@@ -226,46 +226,56 @@ HTMLCollection
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 // window.onload =
-console.log("running");
-let allPTagsThree = document.getElementsByClassName("p");
-// let allPTagsThree = document.querySelector("p");
-// let allPtagsThrees = document.querySelectorAll("p");
-let newElementP;
-// let parentP;
-// for(let allPTagsThree of allPtagsThrees){
-//     if(allPTagsThree.querySelector("p span")!== null){
-//     customCreateElement(allPTagsThree);
-//     }
-// }
-for (let i = 0; i < allPTagsThree.length; i++){
+window.onload = setup;
 
-    console.log("loop");
-    // i = allPTagsThree.id;
-    customCreateElement(allPTagsThree[i]);
-    // console.log(allPTagsThree.id[i]);
-    // parent = allPTagsThree[i].parentElement;
+function setup() {
+    console.log("setup")
+    let allPTagsThree = document.getElementsByClassName("p");
 }
-function customCreateElement(parentP){ 
-    //body 
-    console.log("function");
-    newElementP = document.createElement("p");
-    newElementP.classList.add("img-descript");
-    newElementP.innerHTML = "<p>using create Element</p>";
-    newElementP.style.backgroundColor = "green";
-    newElementP.style.color = "white";
-    // parent = document.body;
-    // parent = document.querySelector("p").parentElement;
-    // parentP = allPTagsThree.id;
-    // console.log(document.querySelectorAll("span")[0].parentElement) 
-    // parentP.appendChild(newElementP); // IDKKKKK ???
-    // console.log(parent);
-    // parentP = allPTagsThree.parentElement;
-    // parent = document.getElementById(allPTagsThree);
+
+// trying in class :3
+
+
+// console.log("running");
+// let allPTagsThree = document.getElementsByClassName("p");
+// // let allPTagsThree = document.querySelector("p");
+// // let allPtagsThrees = document.querySelectorAll("p");
+// let newElementP;
+// // let parentP;
+// // for(let allPTagsThree of allPtagsThrees){
+// //     if(allPTagsThree.querySelector("p span")!== null){
+// //     customCreateElement(allPTagsThree);
+// //     }
+// // }
+// for (let i = 0; i < allPTagsThree.length; i++){
+
+//     console.log("loop");
+//     // i = allPTagsThree.id;
+//     customCreateElement(allPTagsThree[i]);
+//     // console.log(allPTagsThree.id[i]);
+//     // parent = allPTagsThree[i].parentElement;
+// }
+// function customCreateElement(parentP){ 
+//     //body 
+//     console.log("function");
+//     newElementP = document.createElement("p");
+//     newElementP.classList.add("img-descript");
+//     newElementP.innerHTML = "<p>using create Element</p>";
+//     newElementP.style.backgroundColor = "green";
+//     newElementP.style.color = "white";
+//     // parent = document.body;
+//     // parent = document.querySelector("p").parentElement;
+//     // parentP = allPTagsThree.id;
+//     // console.log(document.querySelectorAll("span")[0].parentElement) 
+//     // parentP.appendChild(newElementP); // IDKKKKK ???
+//     // console.log(parent);
+//     // parentP = allPTagsThree.parentElement;
+//     // parent = document.getElementById(allPTagsThree);
     
-    parentP.appendChild(newElementP);
-    // console.log(parentP);
+//     parentP.appendChild(newElementP);
+//     // console.log(parentP);
     
-}
+// }
 
 
 
