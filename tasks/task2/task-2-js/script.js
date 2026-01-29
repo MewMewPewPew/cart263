@@ -231,6 +231,36 @@ window.onload = setup;
 function setup() {
     console.log("setup")
     let allPTagsThree = document.getElementsByClassName("p");
+
+    function customCreateElement(parentP){ 
+//     //body 
+        console.log("function");
+        newElementP = document.createElement("p");
+        newElementP.classList.add("img-descript");
+        newElementP.innerHTML = "<p>using create Element</p>";
+        newElementP.style.backgroundColor = "green";
+        newElementP.style.color = "white";
+//     // parent = document.body;
+//     // parent = document.querySelector("p").parentElement;
+//     // parentP = allPTagsThree.id;
+//     // console.log(document.querySelectorAll("span")[0].parentElement) 
+//     // parentP.appendChild(newElementP); // IDKKKKK ???
+//     // console.log(parent);
+//     // parentP = allPTagsThree.parentElement;
+//     // parent = document.getElementById(allPTagsThree);
+    
+        parentP.appendChild(newElementP);
+        // console.log(parentP);
+    
+    }
+    for (let i = 0; i < allPTagsThree.length; i++){
+
+    console.log("loop");
+    // i = allPTagsThree.id;
+    customCreateElement(allPTagsThree[i]);
+    // console.log(allPTagsThree.id[i]);
+    // parent = allPTagsThree[i].parentElement;
+}
 }
 
 // trying in class :3

@@ -16,7 +16,7 @@ window.onload = function(){
         let offsetX = e.clientX-rect.x; //DIFFERENCE TO ENSURE COORDS ARE RELATIVE
         let offsetY = e.clientY-rect.y;
 
-        drawBox.innerHTML= `offset_x: ${offsetX}, offset_y:${offsetY}`;
+        // drawBox.innerHTML= `offset_x: ${offsetX}, offset_y:${offsetY}`;
         // drawBox.innerHTML= `x: ${e.clientX}, y:${e.clientY}`; //coordonate now relative to the box (and the window)
         
         let pointDiv = document.createElement("div");
