@@ -226,9 +226,7 @@ HTMLCollection
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
 // window.onload =
-window.onload = setup;
-
-function setup() {
+window.onload = function setup() {
     console.log("setup")
     let allPTagsThree = document.getElementsByClassName("p");
 
@@ -239,7 +237,7 @@ function setup() {
         newElementP.classList.add("img-descript");
         newElementP.innerHTML = "<p>using create Element</p>";
         newElementP.style.backgroundColor = "green";
-        newElementP.style.color = "white";
+        // newElementP.style.color = "white";
 //     // parent = document.body;
 //     // parent = document.querySelector("p").parentElement;
 //     // parentP = allPTagsThree.id;
