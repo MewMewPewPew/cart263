@@ -225,42 +225,57 @@ HTMLCollection
 /* 1H: Iterate through the allPTagsThree array and call customCreateElement(), 
 passing the current allPTagsThree element as the parent with each iteration.*/
 /***CODE */
-
-let allPTagsThree = document.querySelector("p");
-let allPTagsThrees = document.querySelectorAll("p");
-// let allPTagsThreeId = allPTagsThree.getAttribute("id"); 
-
-// let parent = [];
-let parentP;
+// window.onload =
+console.log("running");
+let allPTagsThree = document.getElementsByClassName("p");
+// let allPTagsThree = document.querySelector("p");
+// let allPtagsThrees = document.querySelectorAll("p");
 let newElementP;
-// console.log(allPTagsThrees[i]);
+// let parentP;
+// for(let allPTagsThree of allPtagsThrees){
+//     if(allPTagsThree.querySelector("p span")!== null){
+//     customCreateElement(allPTagsThree);
+//     }
+// }
+for (let i = 0; i < allPTagsThree.length; i++){
+
+    console.log("loop");
+    // i = allPTagsThree.id;
+    customCreateElement(allPTagsThree[i]);
+    // console.log(allPTagsThree.id[i]);
+    // parent = allPTagsThree[i].parentElement;
+}
 function customCreateElement(parentP){ 
     //body 
+    console.log("function");
     newElementP = document.createElement("p");
     newElementP.classList.add("img-descript");
     newElementP.innerHTML = "<p>using create Element</p>";
     newElementP.style.backgroundColor = "green";
-    newElementP.querySelector("p").style.color = "white";
-    // parentP = document.body;
-    // parentP = document.getElementById("1") && document.getElementById("2");
-    // parentP = document.querySelector("p").parentElement;
-    // parent = document.getElementById(parentP);
-    parentP.appendChild(newElementP); // IDKKKKK ???
-}
-
-for (let i = 0; i < allPTagsThrees.length; i++){
-    console.log("hey");
-    customCreateElement(parentP)[allPTagsThrees];
+    newElementP.style.color = "white";
+    // parent = document.body;
+    // parent = document.querySelector("p").parentElement;
+    // parentP = allPTagsThree.id;
+    // console.log(document.querySelectorAll("span")[0].parentElement) 
+    // parentP.appendChild(newElementP); // IDKKKKK ???
+    // console.log(parent);
+    // parentP = allPTagsThree.parentElement;
+    // parent = document.getElementById(allPTagsThree);
+    
+    parentP.appendChild(newElementP);
+    // console.log(parentP);
     
 }
-//  customCreateElement(parentP)[1];
+
 
 
 
 
 /***EXPLANATION::
  * 
- * 
+ * I did not manage to understand how to finish this exercise... sadly.
+ * I'm not sure if I had issues with the loading of html/js, and passing the allPTagsThree as the parent.
+ * The for loop was also not working, the i only 0 or undefined lol. I tried different thing but must admit defeat sometimes. 
  */
 
 /*************************************** */
