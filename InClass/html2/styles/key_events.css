@@ -22,6 +22,7 @@ body{
 }
 
 .box{
+    left: 5px;
     margin:10px;
     width:max-content;
     min-height:40px;
@@ -33,6 +34,7 @@ body{
    border-width: 2px;
    border-color: yellow;
 }
+
 #textContainer{
     margin:0 auto;
     width:45vw;

@@ -5,6 +5,16 @@ let turbo = false;
 //will run 1rst when program is runned
 window.onload = function(){
     // console.log("keys");
+    window.setInterval(moveBox,20); //.setInterval .setTimeout
+    function moveBox(){
+        document.getElementById("boxB").style.left =
+        parseInt(this.document.getElementById("boxB").style.left) + speedX + "px"; 
+        if (document.getElementById("boxB").style.left > window.width){
+            document.getElementById("boxB").style.left = "0px";
+        }
+        // parent.innerHTML+=" NEW TEXT TO APPEAR ";
+    }
+
     window.addEventListener("keydown", function (event) {  
         // console.log(event);
         // //print the selected keydown as a textContent
