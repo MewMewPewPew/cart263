@@ -9,9 +9,11 @@ window.onload = function(){
     function moveBox(){
         document.getElementById("boxB").style.left =
         parseInt(this.document.getElementById("boxB").style.left) + speedX + "px"; 
-        if (document.getElementById("boxB").style.left > window.width){
-            document.getElementById("boxB").style.left = "0px";
-        }
+        // if (document.getElementById("boxB").style.left > screen.width){
+        //     console.log("hello");
+        //     document.getElementById("boxB").style.left = 
+        //     parseInt(this.document.getElementById("boxB").style.left) - speedX + "px";
+        // }
         // parent.innerHTML+=" NEW TEXT TO APPEAR ";
     }
 
