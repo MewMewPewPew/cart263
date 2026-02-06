@@ -54,9 +54,14 @@ function setup_C() {
     let boundingBoxParent = canvasB.getBoundingClientRect();
     
     console.log(boundingBoxParent);
-    let x = 0;
-    let y = 0;
-    for(let i = 0; i>symbols.length; i++){
+    let x;
+    let y;
+    // let i;
+    // for(let i = 0; i>symbols.length; i++){
+      let random = Math.floor(Math.random() * symbols.length);
+      console.log(random);
+      let newSymbol = symbols[random];
+      console.log(newSymbol);
       for (x = 0; x <boundingBoxParent.width; x++){
         for(y = 0 ; y < boundingBoxParent.height; y++){
         let symbolText = document.createElement("p");
@@ -67,14 +72,32 @@ function setup_C() {
         // symbolText.style.height = "10px";
         symbolText.style.borderStyle = "none";
   
-        let random = Math.floor(Math.random() * symbols.length);
-        let newSymbol = symbols[random];
-        symbolText.textContent = newSymbol[x];
+        
+        symbolText.textContent = newSymbol; //[y]
         document.getElementById("ani_canvC_B").appendChild(symbolText);
+        
         }
       }
         
-      }
+      // // }
+      // createMap();
+      // console.log(newSymbol);
+
+      // function createMap(){
+      //   for (let xx = 0; xx < 5; xx++){
+      //     newSymbol[x] = [];
+      //     for (let yy = 0; yy < 5; y++){
+      //       addCell(xx,yy);
+      //     }
+      //   }
+      // }
+      // function addCell(xx,yy){
+      //   newSymbol[xx,yy] =cell(xx,yy);
+      // }
+      // function cell(xx,yy){
+      //   return (xx+1)+":"+(yy+1);
+      // }
+
   //  let random = Math.floor(Math.random() * symbols.length);
   //       let newSymbol = symbols[random];
   //       newSymbol[i];
