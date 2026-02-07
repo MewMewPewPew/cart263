@@ -101,14 +101,14 @@ body{
     color:white;
     background:rgba(246, 15, 142,1.0);
   }
-
+/*CSS TEAM C**/
+  .TEAM_C_b_cell{
+    color:black;
+    left:0px;
+    top:0px;
+    
+  }
 /*CSS TEAM H**/
-.TEAM_C_b_cell{
-  color:black;
-  left:0px;
-  top:0px;
-  
-}
 .TEAM_H_box{
   width:max-content;
   background-color: rgb(34, 29, 41);
