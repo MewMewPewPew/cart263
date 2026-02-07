@@ -48,146 +48,45 @@ function setup_C() {
 // google : how to make a grid from an array js ! 
   function aniB(parentCanvas) {
     console.log("in ani-B -teamC");
+    // adding a color background
     let canvasB = document.getElementById("ani_canvC_B");
     canvasB.style.background = "#9ac1de";
+
+    // array of symbols for the pattern
     let symbols = ["+","=","*","_","!",".","/","$","~","^",":","3"]
-    let boundingBoxParent = canvasB.getBoundingClientRect();
-    console.log(boundingBoxParent);
-    
-    let x;
-    let y;
-    let i;
+    // making the symbol random
+    let random = Math.floor(Math.random() * symbols.length);
+    console.log(random);
+    let newSymbol = symbols[random];
+    console.log(newSymbol);
+
     let symbolP;
     let symbolText;
-    let random;
-    let newSymbol;
-    let gridRow = 12;
-    let gridCol = 12;
 
-    random = Math.floor(Math.random() * symbols.length);
-         console.log(random);
-         newSymbol = symbols[random];
-
-    function printGrid(){
-      const resArray = [];
-      for(let r=0; r<gridRow;r++){
-        const srow = symbols.slice(gridCol * r,gridCol*(r+1)).join("");
-        resArray.push(srow);
+    symbolPattern();
+    
+    function symbolPattern(){
+      //offset 
+      let offset = 50;
+      //make a grid of symbol 
+        for (let i = 0; i < 12; i++){
+          for (let j = 0; j < 12; j++){
+            //create symbol using p
+            symbolP = document.createElement("p");
+            symbolText = document.createTextNode(newSymbol);
+            symbolP.classList.add("TEAM_C_b_cell");
+            symbolP.style.marginTop = "-40px";
+            symbolP.style.marginLeft = "-42px";
+            symbolP.style.height = "30px";
+            symbolP.style.width =  "30px";
+            symbolP.style.borderStyle = "none";
+            symbolP.style.left = offset + i * 30 + "px";
+            symbolP.style.top = offset + j * 30 + "px";
+            parentCanvas.appendChild(symbolP);
+            symbolP.appendChild(symbolText);
+          }
+        }
       }
-      return resArray.join("\n");
-    }
-    printGrid();
-    // let i;
-    // for(let i = 0; i>symbols.length; i++){
-    // let leftPlacement = ["0px", "20px", "40px", "60px", "80px", "100px", "120px", "140px", "160px", "180px", "200px", "220px" ];
-    //** 
-      //for (x = 0; x <boundingBoxParent.width; x++){
-      function symbolPattern(){
-        for (y = 0; y < 12; y++){
-        
-        y*symbol() ;
-        if (y <= 13){
-          symbolP.style.marginLeft = parseInt(symbolP.style.marginLeft) + (30*2) + "px"; 
-        }
-        if (y <= 25){
-          symbolP.style.marginLeft = parseInt(symbolP.style.marginLeft) + (30*3) + "px"; 
-        }
-        }
-        symbol();
-      
-    }
-      function symbol(){
-        // for (x = 0; x < 12; x++)
-        // for(y = 0 ; y < 12; y++){
-         random = Math.floor(Math.random() * symbols.length);
-         console.log(random);
-         newSymbol = symbols[random];
-         console.log(newSymbol);
-         symbolP = document.createElement("p");
-         symbolText = document.createTextNode(newSymbol);
-        //  for( i = 0 ; i < 12; i++){
-        //   //  symbolP.style.marginLeft = leftPlacement[i]; 
-        //   //  return leftPlacement;
-        //  }
-        //symbolP.classList.add("TEAM_C_b_cell");
-        // symbolText.style.left = `${j}px`;
-        // symbolText.style.top = `${i}px`;
-        // symbolText.style.width = "10px";
-        // symbolText.style.height = "10px";
-        symbolP.style.borderStyle = "none";
-        // symbolP.style.margin = "0px";
-        symbolP.style.marginLeft = parseInt(symbolP.style.marginLeft) + 30 + "px"; 
-        // symbolP.style.marginLeft = "50px"
-        symbolP.style.border = "0px";
-        symbolP.style.height += "20px";
-        symbolP.style.width +=  "30px";
-        
-        // symbolP.style.left = "-50px";
-        // symbolP.style.top = "-50px";
-        //     symbolText.textContent = newSymbol;
-        //symbolP.textContent = newSymbol; //[y]
-        document.getElementById("ani_canvC_B").appendChild(symbolP);
-        symbolP.appendChild(symbolText);
-        
-        
-        // }
-        
-      }
-      // symbol();   
-      //symbolPattern();
-        
-      // // }
-      // createMap();
-      // console.log(newSymbol);
-
-      // function createMap(){
-      //   for (let xx = 0; xx < 5; xx++){
-      //     newSymbol[x] = [];
-      //     for (let yy = 0; yy < 5; y++){
-      //       addCell(xx,yy);
-      //     }
-      //   }
-      // }
-      // function addCell(xx,yy){
-      //   newSymbol[xx,yy] =cell(xx,yy);
-      // }
-      // function cell(xx,yy){
-      //   return (xx+1)+":"+(yy+1);
-      // }
-
-  //  let random = Math.floor(Math.random() * symbols.length);
-  //       let newSymbol = symbols[random];
-  //       newSymbol[i];
-
-    // //width:375px;
-    // // height:375px;
-    //  let widthCanvasB = document.getElementById("ani_canvC_B").style.width;
-    //  let heightCanvasB = document.getElementById("ani_canvC_B").style.heigth;
-    // let symbolText = document.createElement("p");
-    //     // symbolText.classList.add("aniCanvas");
-    //     symbolText.textContent = newSymbol;
-    //     document.getElementById("ani_canvC_B").appendChild(symbolText);
-    // for(x = 0; x < 1; x++){
-    //   // for(y = 0; y < 1; y++){
-    //   //   // let symbolText = document.createElement("p");
-    //   //   // symbolText.style.borderStyle = "none";
-    //   //   // // symbolText.classList.add("aniCanvas");
-    //   //   // // symbolText.background = "#00000002";
-    //   //   // let random = Math.floor(Math.random() * symbols.length);
-    //   //   // let newSymbol = symbols[random];
-    //   //   // symbolText.textContent += newSymbol[y];
-    //   //   // document.getElementById("ani_canvC_B").appendChild(symbolText);
-        
-    //   // }
-    //   let symbolText = document.createElement("p");
-    //     symbolText.style.borderStyle = "none";
-    //     // symbolText.classList.add("aniCanvas");
-    //     // symbolText.background = "#00000002";
-    //     let random = Math.floor(Math.random() * symbols.length);
-    //     let newSymbol = symbols[random];
-    //     symbolText.textContent = newSymbol[x];
-    //     document.getElementById("ani_canvC_B").appendChild(symbolText);
-    // }
    }
   /****************ANI C ************************************ */
   /** PUT ALL YOUR CODE FOR INTERACTIVE PATTERN C INSIDE HERE */

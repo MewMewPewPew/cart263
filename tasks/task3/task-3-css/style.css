@@ -103,9 +103,14 @@ body{
   }
 /*CSS TEAM C**/
   .TEAM_C_b_cell{
-    color:black;
+    color:rgb(255, 255, 255);
+    width:375px;
+    height:375px;
     left:0px;
     top:0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    position:relative;
     
   }
 /*CSS TEAM H**/
