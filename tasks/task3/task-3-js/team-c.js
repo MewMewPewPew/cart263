@@ -50,40 +50,56 @@ function setup_C() {
     console.log("in ani-B -teamC");
     // adding a color background
     let canvasB = document.getElementById("ani_canvC_B");
-    canvasB.style.background = "#9ac1de";
+    canvasB.style.background = "#566b99";
 
     // array of symbols for the pattern
-    let symbols = ["+","=","*","_","!",".","/","$","~","^",":","3"]
-    // making the symbol random
-    let random = Math.floor(Math.random() * symbols.length);
-    console.log(random);
-    let newSymbol = symbols[random];
-    console.log(newSymbol);
+    // let symbols = ["*","¤","°",":","¿","!","$","~","^","+","‡","}"] •
+    let symbols = ["*","^",":","°","¤","~","_","=","‡","¥","•","¿"]
+    // let symbols = ["+","=","*","_","!",".","/","$","~","^",":","3","&"]
+    // let symbols = ["+","=","*","_","!",".","/","$","~","^",":","3","&"]
 
     let symbolP;
     let symbolText;
-
+    
     symbolPattern();
     
     function symbolPattern(){
       //offset 
       let offset = 50;
       //make a grid of symbol 
-        for (let i = 0; i < 12; i++){
-          for (let j = 0; j < 12; j++){
+      for (let i = 0; i < 12; i++){
+        for (let j = 0; j < 12; j++){
+            // making the symbol random
+            let random = Math.floor(Math.random() * symbols.length);
+              // console.log(random);
+            let newSymbol = symbols[random];
+              // console.log(newSymbol);
+
             //create symbol using p
             symbolP = document.createElement("p");
             symbolText = document.createTextNode(newSymbol);
+            //class css 
             symbolP.classList.add("TEAM_C_b_cell");
             symbolP.style.marginTop = "-40px";
-            symbolP.style.marginLeft = "-42px";
+            symbolP.style.marginLeft = "-43px";
             symbolP.style.height = "30px";
             symbolP.style.width =  "30px";
             symbolP.style.borderStyle = "none";
             symbolP.style.left = offset + i * 30 + "px";
             symbolP.style.top = offset + j * 30 + "px";
+            symbolP.style.background = "#9ac1de";
+
             parentCanvas.appendChild(symbolP);
             symbolP.appendChild(symbolText);
+
+            //add event listener to each p (realised it was supposed to be a div I hope it's fine I did it with a "p")
+            let hoverSymbol = symbols[j];
+            symbolP.addEventListener("mousemove", function(e){
+              this.style.background = "#566b99";
+              this.style.color = "#9ac1de";
+              this.textContent = hoverSymbol ;
+
+            })
           }
         }
       }
