@@ -48,19 +48,14 @@ function setup_C() {
 // google : how to make a grid from an array js ! 
   function aniB(parentCanvas) {
     console.log("in ani-B -teamC");
-    // adding a color background
+
     let canvasB = document.getElementById("ani_canvC_B");
+    // adding a color background
     canvasB.style.background = "#566b99";
 
     // array of symbols for the pattern
-    // let symbols = ["*","¤","°",":","¿","!","$","~","^","+","‡","}"] •
     let symbols = ["*","^",":","°","¤","~","_","=","‡","¥","•","¿"]
-    // let symbols = ["+","=","*","_","!",".","/","$","~","^",":","3","&"]
-    // let symbols = ["+","=","*","_","!",".","/","$","~","^",":","3","&"]
 
-    let symbolP;
-    let symbolText;
-    
     symbolPattern();
     
     function symbolPattern(){
@@ -76,9 +71,9 @@ function setup_C() {
               // console.log(newSymbol);
 
             //create symbol using p
-            symbolP = document.createElement("p");
-            symbolText = document.createTextNode(newSymbol);
-            //class css 
+            let symbolP = document.createElement("p");
+            let symbolText = document.createTextNode(newSymbol);
+            //class css (I ADDED A CSS CLASS :D !)
             symbolP.classList.add("TEAM_C_b_cell");
             symbolP.style.marginTop = "-40px";
             symbolP.style.marginLeft = "-43px";
@@ -92,7 +87,7 @@ function setup_C() {
             parentCanvas.appendChild(symbolP);
             symbolP.appendChild(symbolText);
 
-            //add event listener to each p (realised it was supposed to be a div I hope it's fine I did it with a "p")
+            //add event listener to each p (realised it was supposed to be a div, I hope it's fine I did it with a "p")
             let hoverSymbol = symbols[j];
             symbolP.addEventListener("mousemove", function(e){
               this.style.background = "#566b99";
@@ -161,6 +156,14 @@ function setup_C() {
    * **/
    function aniD(parentCanvas) {
     console.log("in ani-D -teamC");
+
+     let canvasD = document.getElementById("ani_canvC_D");
+    // adding an array of color background
+    canvasD.style.background = ["#ade2e9","#91b0bd","#6988ac","#566b99","#424381","#292a57"];
+
+    // array of symbols for the pattern
+    // let symbols = ["*","^",":","°","¤","~","_","=","‡","¥","•","¿"]
+
     }
 }
    
