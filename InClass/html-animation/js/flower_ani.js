@@ -64,6 +64,7 @@ window.onload = function () {
         "#ff0088ff",
         ]);
         //will make the animation rate universal! 
+        //let currentTime = ????
         let delta_time = currentTime - LastTime;
         LastTime = currentTime;
         counter += 0.03*delta_time;
