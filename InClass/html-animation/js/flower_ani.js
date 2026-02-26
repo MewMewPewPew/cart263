@@ -31,7 +31,7 @@ window.onload = function () {
     let r1 = 30;
     let counter = 0;
     requestAnimationFrame(animate);
-    function animate() {
+    function animate(currentTime) {
         //repaint with a black rect... like the background in draw in p5.js
         context.clearRect(0,0,canvas.width,canvas.height);
         //console.log("go")
