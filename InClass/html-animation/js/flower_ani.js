@@ -31,7 +31,7 @@ window.onload = function () {
     let r1 = 30;
     let counter = 0;
     requestAnimationFrame(animate);
-    function animate(currentTime) {
+    function animate() { // (currentTime)
         //repaint with a black rect... like the background in draw in p5.js
         context.clearRect(0,0,canvas.width,canvas.height);
         //console.log("go")
@@ -64,10 +64,11 @@ window.onload = function () {
         "#ff0088ff",
         ]);
         //will make the animation rate universal! 
-        //let currentTime = ????
-        let delta_time = currentTime - LastTime;
-        LastTime = currentTime;
-        counter += 0.03*delta_time;
+        
+        // let delta_time = currentTime - LastTime;
+        // LastTime = currentTime;
+        // counter += 0.03*delta_time;
+        counter += 0.03;
         requestAnimationFrame(animate);
     }
 }
