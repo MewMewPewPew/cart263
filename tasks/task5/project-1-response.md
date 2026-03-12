@@ -1,6 +1,6 @@
 # Project 1 response
 ##### CART 263 | Task 5 | By Ash Oest O'Leary
-### Group 6 - [Website](lee-sifu.github.io/Project-1_Cart263/) + [Repository](https://github.com/Lee-Sifu/Project-1_Cart263)
+### Group 6 - [Website](https://lee-sifu.github.io/Project-1_Cart263/) + [Repository](https://github.com/Lee-Sifu/Project-1_Cart263)
 
 
 <!-- ##### Task: 
