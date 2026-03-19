@@ -74,11 +74,19 @@ class DrawingBoard {
 
   /* method to add animate objects on canvas */
   animate() {
+    // average = 0; 
+    let sum = 0;
+    let frequencyData; 
+    for (let i = 0; i < frequencyData.length; i++) {
+        sum += frequencyData[i];
+      }
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
      this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
      this.objectsOnCanvas[i].update();
      this.objectsOnCanvas[i].display();
+    //  sum += frequencyData[i];
     }
+    average = sum / frequencyData.length;
   }
 
   run(videoElement){
