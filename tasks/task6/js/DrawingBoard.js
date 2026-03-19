@@ -6,6 +6,9 @@ class DrawingBoard {
     this.objectsOnCanvas = [];
     let self = this;
     this.drawingBoardId = drawingBoardId;
+    // microphone stuff
+
+
     //each element has a mouse clicked and a mouse over
     this.canvas.addEventListener("click", function (e) {
       self.clickCanvas(e);
@@ -72,21 +75,23 @@ class DrawingBoard {
     }
   }
 
-  /* method to add animate objects on canvas */
+  /* method to add animate objects on canvas */ 
+  //THIS. !!!!!!
   animate() {
     // average = 0; 
-    let sum = 0;
-    let frequencyData; 
-    for (let i = 0; i < frequencyData.length; i++) {
-        sum += frequencyData[i];
-      }
+    // let sum = 0;
+    // let frequencyData; 
+    // for (let i = 0; i < frequencyData.length; i++) {
+    //     sum += frequencyData[i];
+    //   }
+    // average = sum / frequencyData.length;
+    this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
+
     for (let i = 0; i < this.objectsOnCanvas.length; i++) {
      this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
      this.objectsOnCanvas[i].update();
      this.objectsOnCanvas[i].display();
-    //  sum += frequencyData[i];
     }
-    average = sum / frequencyData.length;
   }
 
   run(videoElement){

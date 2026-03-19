@@ -14,9 +14,14 @@ window.addEventListener("click", function(){
 videoEl.loop = true;
 
 // Get Microphone Input (Function)
-getMicrophoneInput();
-let average = 0; 
-// let sum = 0;
+console.log("Mirophone! ");
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioContext = new AudioContext(); //using the web audio library
+    getMicrophoneInput();
+let frequencyData;
+   
+// let average = 0; 
+// // let sum = 0;
 
 
 let theCanvases = document.querySelectorAll(".canvases");
@@ -63,14 +68,9 @@ function animationLoop(){
     window.requestAnimationFrame(animationLoop);
 }
 
-// Microphone function copy from Media API- microphoneEx.js
+// micro
 async function getMicrophoneInput() {
-    console.log("Mirophone! ");
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioContext = new AudioContext(); //using the web audio library
-
-    //mention Canvas??
-try {
+     try {
     //returns a MediaStreamAudioSourceNode.
     let audioStream = await navigator.mediaDevices.getUserMedia({
       audio: true,
@@ -86,48 +86,78 @@ try {
     filter.connect(analyser);
     analyser.fftSize = 32;
     frequencyData = new Uint8Array(analyser.frequencyBinCount);
-
-    // stuff
-
-    // context.clearRect(0, 0, canvas.width, canvas.height);
-    //   analyser.getByteFrequencyData(frequencyData);
-    //   let average = 0;
-    //   let sum = 0;
-
-    // for (let i = 0; i < frequencyData.length; i++) {
-    //     sum += frequencyData[i];
-    //   }
-    //   average = sum / frequencyData.length;
-
-    //   console.log(average);
-    // //call loop ...
-    // // requestAnimationFrame(animateFrequencies);
-
-    // /****our looping callback function */
-    // function animateFrequencies() {
-    //     context.clearRect(0, 0, canvas.width, canvas.height);
-    //   analyser.getByteFrequencyData(frequencyData);
-    //   let average = 0;
-    //   let sum = 0;
-
-    //   for (let i = 0; i < frequencyData.length; i++) {
-    //     sum += frequencyData[i];
-    //   }
-    //   average = sum / frequencyData.length;
-    // //   console.log(average);
-    // context.fillStyle = "#FF0000";
-    // //use the average frequency
-    // context.fillRect(canvas.width / 2, canvas.height / 2, average, 30);
-    //   //call loop ...
-    //   requestAnimationFrame(animateFrequencies);
-    // }
+    console.log(frequencyData);
   } catch (err) {
     /* handle the error */
     console.log("had an error getting the microphone");
   }
-
-
 }
+
+// Microphone function copy from Media API- microphoneEx.js
+// async function getMicrophoneInput() {
+//     console.log("Mirophone! ");
+//     window.AudioContext = window.AudioContext || window.webkitAudioContext;
+//     let audioContext = new AudioContext(); //using the web audio library
+
+//     //mention Canvas??
+// try {
+//     //returns a MediaStreamAudioSourceNode.
+//     let audioStream = await navigator.mediaDevices.getUserMedia({
+//       audio: true,
+//     });
+//     // console.log(audioStream)
+//     //pass the microphone input to the web audio API
+//     let microphoneIn = audioContext.createMediaStreamSource(audioStream);
+//     const filter = audioContext.createBiquadFilter();
+//     const analyser = audioContext.createAnalyser();
+//     // microphone -> filter ->  analyzer->destination
+//     microphoneIn.connect(filter);
+//     //use the analyzer object to get some properties ....
+//     filter.connect(analyser);
+//     analyser.fftSize = 32;
+//     frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+//     // stuff
+
+//     // context.clearRect(0, 0, canvas.width, canvas.height);
+//     //   analyser.getByteFrequencyData(frequencyData);
+//     //   let average = 0;
+//     //   let sum = 0;
+
+//     // for (let i = 0; i < frequencyData.length; i++) {
+//     //     sum += frequencyData[i];
+//     //   }
+//     //   average = sum / frequencyData.length;
+
+//     //   console.log(average);
+//     // //call loop ...
+//     // // requestAnimationFrame(animateFrequencies);
+
+//     // /****our looping callback function */
+//     // function animateFrequencies() {
+//     //     context.clearRect(0, 0, canvas.width, canvas.height);
+//     //   analyser.getByteFrequencyData(frequencyData);
+//     //   let average = 0;
+//     //   let sum = 0;
+
+//     //   for (let i = 0; i < frequencyData.length; i++) {
+//     //     sum += frequencyData[i];
+//     //   }
+//     //   average = sum / frequencyData.length;
+//     // //   console.log(average);
+//     // context.fillStyle = "#FF0000";
+//     // //use the average frequency
+//     // context.fillRect(canvas.width / 2, canvas.height / 2, average, 30);
+//     //   //call loop ...
+//     //   requestAnimationFrame(animateFrequencies);
+//     // }
+//   } catch (err) {
+//     /* handle the error */
+//     console.log("had an error getting the microphone");
+//   }
+
+
+// }
 
 
 
