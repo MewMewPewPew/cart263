@@ -40,23 +40,87 @@ scene.add(object1,object2,object3)
 
 const raycaster = new THREE.Raycaster()
 //ray will start somewhere on left of the spheres
-const rayOrigin = new THREE.Vector3(- 3, 0, 0)
+// const rayOrigin = new THREE.Vector3(- 2, 5, 0)
+
+const rayOrigin_n = new THREE.Vector3(-3, -2, 0);
+
+
+
 //right (positive x)
-const rayDirection = new THREE.Vector3(10, 0, 0)  //reduce magnitude BUT keep direction
+const rayDirection = new THREE.Vector3( 0, -10, 0)  //reduce magnitude BUT keep direction
 console.log(rayDirection.length())
 //set direction only (has length ==1)
+
+// const rayOrigin_n_2 = new THREE.Vector3(-2, 5, 0);
+//   const rayDirection_2 = new THREE.Vector3(0, -10, 0); //point down
+//   rayDirection_2.normalize();
+//   raycaster.set(rayOrigin_n_2, rayDirection_2); //raycaster has been oriented
+
 rayDirection.normalize()
 console.log(rayDirection.length())
-raycaster.set(rayOrigin, rayDirection) //raycaster has been oriented
+raycaster.set(rayOrigin_n, rayDirection) //raycaster has been oriented
 
- //cast a ray - check intersection with ONLY object 1
-const intersect = raycaster.intersectObject(object3)
-console.log(intersect)
+    
+
+
+// object1.updateMatrixWorld()
+// object2.updateMatrixWorld()
+// object3.updateMatrixWorld() 
+//Make sure to update the matrix before casting a ray *
+//  //cast a ray - check intersection with ONLY object 1
+// const intersect = raycaster.intersectObject(object1)
+//cast a ray - check intersection with obj1, obj2 and obj 3 
+// const intersects = raycaster.intersectObjects([object1, object2, object3])
+// console.log(intersects)
+let mouse = new THREE.Vector2(0,0)
+
+ window.addEventListener("mousemove", function(event) {
+  mouse.x = (event.clientX / sizes.width) * 2 - 1; //map to between -1,1
+  mouse.y = -(event.clientY / sizes.height) * 2 + 1; //map to between -1,1
+  //console.log(mouse);
+  });
+
+// let currentIntersectedObj = null; // ?
 
 window.requestAnimationFrame(animate);
 
-function animate() {
-  controls.update();
+function animate(timer) { 
+    controls.update();
+   
+    raycaster.setFromCamera(mouse, camera);
+
+    const objectsToTest = [object1, object2, object3];
+    const intersects = raycaster.intersectObjects(objectsToTest);
+ 
+    for(const object of objectsToTest)
+    {
+        object.material.color.set('#ff0000')
+    }
+
+    if (intersects.length > 0) {
+      //there was none so we enter // ? 
+        intersects[0].object.material.color.set("#0000ff")
+    }
+    // 
+    // controls.update();
+    // object1.position.y = Math.sin(timer/1000 *.5 ) * 3
+    // object2.position.y = Math.sin(timer/1000  *.4) * 3
+    // object3.position.y = Math.sin(timer/1000 *.3) *  3
+
+    // const objectsToTest = [object1, object2, object3]
+    // const intersects = raycaster.intersectObjects(objectsToTest)
+
+    // for(const object of objectsToTest)
+    // {
+    //     object.material.color.set('#ff0000')
+    // }
+
+    // for(const intersect of intersects)
+    // {
+    //     intersect.object.material.color.set('#0000ff')
+    // }
+
   renderer.render(scene, camera);
+
   window.requestAnimationFrame(animate);
 }
