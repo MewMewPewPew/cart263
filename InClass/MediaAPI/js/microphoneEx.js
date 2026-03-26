@@ -45,7 +45,7 @@ async function getMicrophoneInput() {
         sum += frequencyData[i];
       }
       average = sum / frequencyData.length;
-    //   console.log(average);
+    console.log(average);
     context.fillStyle = "#FF0000";
     //use the average frequency
     context.fillRect(canvas.width / 2, canvas.height / 2, average, 30);
