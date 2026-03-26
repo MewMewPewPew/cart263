@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'; // self-explanatory
-import { add } from "three/src/nodes/math/OperatorNode.js";
+// import { add } from "three/src/nodes/math/OperatorNode.js";
 
 const gltfLoader = new GLTFLoader();
 
@@ -72,18 +72,18 @@ plane.position.y = - 0.65
 
 scene.add(plane)
 
-window.requestAnimationFrame(animate)
+// window.requestAnimationFrame(animate)
 
-addAndRun();
+addAndRun(gltfModel);
 //get fox model specifically, add it 
 function addAndRun(loadedObj){
   console.log(loadedObj);
   let foxModel = loadedObj.scene.children[0]
   scene.add(foxModel);
 
-  foxModel.scale.x = 0.25;
-  foxModel.scale.y = 0.25;
-  foxModel.scale.z = 0.25;
+  foxModel.scale.x = 0.01;
+  foxModel.scale.y = 0.01;
+  foxModel.scale.z = 0.01;
 
   window.requestAnimationFrame(animate);
 
